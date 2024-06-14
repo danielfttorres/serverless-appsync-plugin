@@ -5,7 +5,7 @@ import { CfnResources } from '../types/cloudFormation';
 import { Api } from './Api';
 import { flatten } from 'lodash';
 import { parse, print } from 'graphql';
-import ServerlessError from 'serverless/lib/serverless-error';
+//import ServerlessError from 'serverless/lib/serverless-error';
 import { validateSDL } from 'graphql/validation/validate';
 import { mergeTypeDefs } from '@graphql-tools/merge';
 
@@ -53,7 +53,7 @@ export class Schema {
   valdiateSchema(schema: string) {
     const errors = validateSDL(parse(schema));
     if (errors.length > 0) {
-      throw new ServerlessError(
+      throw new Error(
         'Invalid GraphQL schema:\n' +
           errors.map((error) => `     ${error.message}`).join('\n'),
       );

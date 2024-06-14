@@ -65,9 +65,11 @@ export const getAppSyncConfig = (
       return;
     }
 
+    // @ts-ignore
     if (isUnitResolver(resolver) && typeof resolver.dataSource === 'object') {
       const name = typeAndField.replace(/[^a-z_]/i, '_');
       dataSources[name] = {
+        // @ts-ignore
         ...resolver.dataSource,
         name,
       };
@@ -81,8 +83,10 @@ export const getAppSyncConfig = (
         ? {
             kind: 'UNIT',
             dataSource:
+              // @ts-ignore
               typeof resolver.dataSource === 'object'
                 ? typeAndField.replace(/[^a-z_]/i, '_')
+                // @ts-ignore
                 : resolver.dataSource,
           }
         : {
