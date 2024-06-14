@@ -15,4 +15,3 @@ users.json
 # vim
 *.swp
 .vscode/settings.json
-lib
